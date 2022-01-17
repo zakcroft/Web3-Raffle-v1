@@ -1,12 +1,28 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store";
+
+import { PageLayout, Home, NoMatch } from "./components";
+
 import "./css/main.css";
 
-function App() {
+export const App = () => (
+  <Routes>
+    <Route element={<PageLayout />}>
+      <Route index element={<Home />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="*" element={<NoMatch />} />
+    </Route>
+  </Routes>
+);
+
+export default function Root() {
   return (
-    <div className="flex flex-col justify-center items-center h-screen text-xl text-center bg-gray-800">
-      <header className="text-white">React Setup</header>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   );
 }
-
-export default App;
