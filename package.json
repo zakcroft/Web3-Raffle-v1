@@ -33,7 +33,7 @@
   "scripts": {
     "start": "npm run server & ttab -t 'React scripts' npm run client && ttab -t 'Dev commands'",
     "server": "json-server --middlewares ./node_modules/json-server-reset --watch server/db.json --port 3001",
-    "client": "react-scripts start",
+    "client": " BROWSER=brave react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
