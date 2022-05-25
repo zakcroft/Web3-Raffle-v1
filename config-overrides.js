@@ -1,13 +1,15 @@
 /* config-overrides.js */
-const webpack = require("webpack");
-const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 module.exports = function override(config, env) {
-  config.plugins.push(
-    new NodePolyfillPlugin({
-      excludeAliases: ["console"],
-    })
-  );
-
+  config.resolve = {
+    ...config.resolve,
+    fallback: {
+      stream: require.resolve("stream-browserify"),
+      crypto: require.resolve("crypto-browserify"),
+      http: require.resolve("stream-http"),
+      https: require.resolve("https-browserify"),
+      os: require.resolve("os-browserify/browser"),
+    },
+  };
   return config;
 };
