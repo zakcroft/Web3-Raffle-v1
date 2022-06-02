@@ -3,19 +3,24 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
-import { PageLayout, Home, NoMatch } from "./components";
+import { ProtectedRoutes } from "./components/utils/ProtectedRoute";
+import { PageLayout, Home, NoMatch, Landing } from "./components";
 
 import "./css/main.css";
 
-export const App = () => (
-  <Routes>
-    <Route element={<PageLayout />}>
-      <Route index element={<Home />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="*" element={<NoMatch />} />
-    </Route>
-  </Routes>
-);
+export const App = () => {
+  return (
+    <Routes>
+      <Route element={<PageLayout />}>
+        <Route index element={<Landing />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/home" element={<Home />} />
+        </Route>
+        <Route path="*" element={<NoMatch />} />
+      </Route>
+    </Routes>
+  );
+};
 
 export default function Root() {
   return (
