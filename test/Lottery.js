@@ -21,7 +21,7 @@ contract("Lottery", (accounts) => {
 
   it("Sets up the correct state", async () => {
     assert.equal(
-        (await lotteryToken.balanceOf(lotteryInstance.address)).toString(),
+      (await lotteryToken.balanceOf(lotteryInstance.address)).toString(),
       1000000
     );
   });
@@ -136,7 +136,6 @@ contract("Lottery", (accounts) => {
     assert.equal((await lotteryInstance.lottery_state()).toString(), 1);
     assert.equal(await lotteryInstance.lastWinner(), player1);
     assert.equal(await web3.eth.getBalance(lotteryInstance.address), 0);
-
   });
 
   it("closeLottery resets the state", async () => {
@@ -151,10 +150,10 @@ contract("Lottery", (accounts) => {
     assert.equal((await lotteryInstance.lottery_state()).toString(), 1);
 
     await truffleAssert.reverts(
-          lotteryInstance.players(0),
-        null,
-        "Players in not reset on lottery close"
-      );
+      lotteryInstance.players(0),
+      null,
+      "Players in not reset on lottery close"
+    );
   });
 
   // it("only owner can deliver an item.", async () => {

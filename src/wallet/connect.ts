@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useWeb3React } from "@web3-react/core";
 import { useNavigate } from "react-router-dom";
 
-import {IS_Wallet_Connected_KEY} from "../constants"
+import { IS_Wallet_Connected_KEY } from "../constants";
 
 export const injected = new InjectedConnector({
   supportedChainIds: [1, 3, 4, 5, 42, 1337],

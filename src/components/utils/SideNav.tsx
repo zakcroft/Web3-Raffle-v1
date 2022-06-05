@@ -10,7 +10,7 @@ export function SideNav() {
         <NavLink
           className={({ isActive }) => {
             return `block m-5 hover:text-amber-300 hover:underline ${
-              isActive ? "text-white":"text-yellow-400"
+              isActive ? "text-white" : "text-yellow-400"
             }`;
           }}
           to={`./`}

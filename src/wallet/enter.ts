@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useWeb3React } from "@web3-react/core";
 import { useContracts } from "./contracts";
 
@@ -7,7 +7,7 @@ export function useBuyTokens(ethValue: string = "0.1", quantity: number = 100) {
   const [tx, setTx] = useState<object>({});
   const { Lottery } = useContracts();
 
-  const buyTokens = useCallback(async () => {
+  const enterLottery = useCallback(async () => {
     const tx = await Lottery.buyLotteryTokens({
       from: account,
       value: library?.utils.toWei(ethValue, "ether"),
@@ -16,5 +16,5 @@ export function useBuyTokens(ethValue: string = "0.1", quantity: number = 100) {
     setTx(tx);
   }, [Lottery]);
 
-  return { buyTokens, tx };
+  return { enterLottery, tx };
 }
