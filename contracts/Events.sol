@@ -11,5 +11,5 @@ contract Events {
     );
     event WinnerDeclared(address winner, uint256 winnings);
 
-    event Log(address addr, uint256 amount);
+    event Log(address addr, uint256 amount, string msg);
 }

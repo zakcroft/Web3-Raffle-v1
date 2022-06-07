@@ -38,7 +38,7 @@ export function useContracts() {
     //return () => setContracts({});
   }, [library]);
 
-  // console.log("isContractsLoaded===", isContractsLoaded);
+  //console.log("isContractsLoaded===", isContractsLoaded);
   // console.log("contracts in contracts===", contracts);
   return { ...contracts, isContractsLoaded };
 }

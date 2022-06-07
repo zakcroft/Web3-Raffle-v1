@@ -40,6 +40,12 @@
           "internalType": "uint256",
           "name": "amount",
           "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "msg",
+          "type": "string"
         }
       ],
       "name": "Log",
@@ -90,24 +96,24 @@
       "type": "event"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amountOfETH\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amountOfTokens\",\"type\":\"uint256\"}],\"name\":\"BuyTokens\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Log\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amountOfETH\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amountOfTokens\",\"type\":\"uint256\"}],\"name\":\"SoldTokens\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"winner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"winnings\",\"type\":\"uint256\"}],\"name\":\"WinnerDeclared\",\"type\":\"event\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Events.sol\":\"Events\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Events.sol\":{\"keccak256\":\"0x766c73b4676c8fbaabb29282256431d2caa430c9de762945ac8b52653db7567f\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://7fc0cc452a24f65bb5df2db0ad42dcf36a393f5832c5b3ba0026f6dc27131ce9\",\"dweb:/ipfs/QmdPtqGKkPRRxWmKJa1pgdXbzdwNgqqhR6QauF1nqf7fYX\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220561dba1d1290f6e7b4b1889da161b964b9c2eb2c72b11e53dc4f1573f05eb11064736f6c634300080d0033",
-  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220561dba1d1290f6e7b4b1889da161b964b9c2eb2c72b11e53dc4f1573f05eb11064736f6c634300080d0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amountOfETH\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amountOfTokens\",\"type\":\"uint256\"}],\"name\":\"BuyTokens\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"msg\",\"type\":\"string\"}],\"name\":\"Log\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amountOfETH\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amountOfTokens\",\"type\":\"uint256\"}],\"name\":\"SoldTokens\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"winner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"winnings\",\"type\":\"uint256\"}],\"name\":\"WinnerDeclared\",\"type\":\"event\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Events.sol\":\"Events\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Events.sol\":{\"keccak256\":\"0x558042abe4bfeba76001a52cfda656b225f3464e1f7b17bb249a426735e48076\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://d2425a1264f91e82763ab1a19a7756d9cbf63140ddeb87b4125d20e26dd1a5cd\",\"dweb:/ipfs/QmZ7bCmM4oFTrUfkaoudAsirbZ5nJ1mzDxrSMUJ3xCY28r\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122048a557d3bc515b6931cf0181bb9949c5dd64026a1b67910c039bf1d3d5b98c1c64736f6c634300080d0033",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122048a557d3bc515b6931cf0181bb9949c5dd64026a1b67910c039bf1d3d5b98c1c64736f6c634300080d0033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "71:318:7:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "71:318:7:-:0;;;;;",
-  "source": "// SPDX-License-Identifier: GPL-3.0\n\npragma solidity >=0.4.22 <0.9.0;\n\ncontract Events {\n    event BuyTokens(address buyer, uint256 amountOfETH, uint256 amountOfTokens);\n    event SoldTokens(\n        address buyer,\n        uint256 amountOfETH,\n        uint256 amountOfTokens\n    );\n    event WinnerDeclared(address winner, uint256 winnings);\n\n    event Log(address addr, uint256 amount);\n}\n",
+  "sourceMap": "71:330:7:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "71:330:7:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: GPL-3.0\n\npragma solidity >=0.4.22 <0.9.0;\n\ncontract Events {\n    event BuyTokens(address buyer, uint256 amountOfETH, uint256 amountOfTokens);\n    event SoldTokens(\n        address buyer,\n        uint256 amountOfETH,\n        uint256 amountOfTokens\n    );\n    event WinnerDeclared(address winner, uint256 winnings);\n\n    event Log(address addr, uint256 amount, string msg);\n}\n",
   "sourcePath": "/Users/zak/Dropbox/Code/dapps/lottery/contracts/Events.sol",
   "ast": {
     "absolutePath": "project:/contracts/Events.sol",
     "exportedSymbols": {
       "Events": [
-        955
+        957
       ]
     },
-    "id": 956,
+    "id": 958,
     "license": "GPL-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -132,9 +138,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 955,
+        "id": 957,
         "linearizedBaseContracts": [
-          955
+          957
         ],
         "name": "Events",
         "nameLocation": "80:6:7",
@@ -417,13 +423,13 @@
           },
           {
             "anonymous": false,
-            "eventSelector": "f950957d2407bed19dc99b718b46b4ce6090c05589006dfb86fd22c34865b23e",
-            "id": 954,
+            "eventSelector": "4e3358e5bdb38f499a83fbcd33d16343569f3b6fe53021022dede6364017b4a8",
+            "id": 956,
             "name": "Log",
             "nameLocation": "353:3:7",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 953,
+              "id": 955,
               "nodeType": "ParameterList",
               "parameters": [
                 {
@@ -434,7 +440,7 @@
                   "name": "addr",
                   "nameLocation": "365:4:7",
                   "nodeType": "VariableDeclaration",
-                  "scope": 954,
+                  "scope": 956,
                   "src": "357:12:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -463,7 +469,7 @@
                   "name": "amount",
                   "nameLocation": "379:6:7",
                   "nodeType": "VariableDeclaration",
-                  "scope": 954,
+                  "scope": 956,
                   "src": "371:14:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -482,19 +488,47 @@
                     }
                   },
                   "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 954,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "msg",
+                  "nameLocation": "394:3:7",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 956,
+                  "src": "387:10:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 953,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "387:6:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
                 }
               ],
-              "src": "356:30:7"
+              "src": "356:42:7"
             },
-            "src": "347:40:7"
+            "src": "347:52:7"
           }
         ],
-        "scope": 956,
-        "src": "71:318:7",
+        "scope": 958,
+        "src": "71:330:7",
         "usedErrors": []
       }
     ],
-    "src": "37:353:7"
+    "src": "37:365:7"
   },
   "compiler": {
     "name": "solc",
@@ -502,7 +536,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-05-30T13:43:45.446Z",
+  "updatedAt": "2022-06-07T08:54:12.992Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

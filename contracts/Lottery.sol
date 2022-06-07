@@ -16,6 +16,7 @@ contract Lottery is Ownable, Events {
     LOTTERY_STATE public lottery_state;
     uint256 private constant _PRIZE_FUND = 1000;
     address payable[] public players;
+    mapping(address => bool) playersMap;
     address public lastWinner;
     address public saleTokens;
 
@@ -58,7 +59,7 @@ contract Lottery is Ownable, Events {
         // Can only buy 100 at a time.
         uint256 amountToBuy = 100;
 
-        emit Log(msg.sender, amountToBuy);
+        emit Log(msg.sender, amountToBuy, "Bought tokens");
         // basically this on cmd lotteryToken.balanceOf(lottery.address)
         uint256 lotteryTokenBalance = token.balanceOf(address(this));
         require(
@@ -68,6 +69,7 @@ contract Lottery is Ownable, Events {
 
         // Contract A calls Contract B
         // _transfer(lotteryContract, account[1], amountToBuy);
+        // msg.sender is different from msg.sender in the erc20 as its the lotteryContract in erc20
         bool sent = token.transfer(msg.sender, amountToBuy);
         require(sent, "Failed to transfer token to user");
 
@@ -96,10 +98,15 @@ contract Lottery is Ownable, Events {
         // not the msg.sender of the call to enterLottery()
         // Contract A calls Contract B
 
-        token.burnFrom(msg.sender, lotteryTokensAmountToEnter);
+        // so bought them and then send back to enter the lottery.
+        token.transferFrom(
+            msg.sender,
+            address(this),
+            lotteryTokensAmountToEnter
+        );
         players.push(payable(msg.sender));
 
-        emit Log(address(this), lotteryTokensAmountToEnter);
+        emit Log(msg.sender, lotteryTokensAmountToEnter, "Lottery Entered");
     }
 
     function getRandomNumber() public view returns (uint256) {
@@ -157,6 +164,8 @@ contract Lottery is Ownable, Events {
 
 // Now enter and use the transferFrom
 // const res = await lottery.enterLottery("100", { from:accounts[1] })
+
+// lottery.pickWinner()
 
 // Other
 // res.logs[1].args.amount

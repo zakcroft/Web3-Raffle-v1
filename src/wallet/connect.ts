@@ -11,7 +11,7 @@ export const injected = new InjectedConnector({
 
 export function useConnectWallet() {
   const navigate = useNavigate();
-  const { activate, deactivate } = useWeb3React();
+  const { activate, deactivate, library } = useWeb3React();
 
   async function connect() {
     try {
@@ -42,6 +42,7 @@ export function useConnectWallet() {
       if (localStorage?.getItem(IS_Wallet_Connected_KEY) === "true") {
         try {
           await activate(injected);
+          navigate("/home");
         } catch (ex) {
           console.log(ex);
         }

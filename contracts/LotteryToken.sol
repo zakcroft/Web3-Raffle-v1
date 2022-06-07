@@ -11,8 +11,12 @@ contract LotteryToken is ERC20Capped, ERC20Burnable, Ownable {
         ERC20("LottoToken", "LOT")
         ERC20Capped(_MAX_COINS)
     {
-        // msg.sender is account[0] the creator
+        // Owner of the contract is the sender.
+        // msg.sender is account[0] the creator/owner of the contract
+        // Someone needs to be the owner to access the new coins
         _mint(msg.sender, _MAX_COINS);
+        // before migration finishes coins are in the token balance mapping
+        // lotteryToken.balanceOf(accounts[0])  => 2500000
     }
 
     function _mint(address account, uint256 amount)

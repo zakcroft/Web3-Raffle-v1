@@ -4,7 +4,7 @@ import { useContracts } from "./contracts";
 
 export function useBuyTokens(ethValue: string = "0.1", quantity: number = 100) {
   const { library, account } = useWeb3React();
-  const [tx, setTx] = useState<object>({});
+  const [buyTokensTx, setTx] = useState<object>({});
   const { Lottery } = useContracts();
 
   const buyTokens = useCallback(async () => {
@@ -16,5 +16,5 @@ export function useBuyTokens(ethValue: string = "0.1", quantity: number = 100) {
     setTx(tx);
   }, [Lottery]);
 
-  return { buyTokens, tx };
+  return { buyTokens, buyTokensTx };
 }

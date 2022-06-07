@@ -5,15 +5,11 @@ import { useContracts } from "../../wallet/contracts";
 // @ts-ignore
 export const ProtectedRoutes = () => {
   const { isWalletConnected } = useConnectWallet();
-  const contracts = useContracts();
-  console.log("1", contracts.isContractsLoaded);
-  console.log("2", contracts);
-  if (!isWalletConnected()) {
-    console.log("isWalletConnected", isWalletConnected());
+  const { isContractsLoaded } = useContracts();
 
+  if (!(isWalletConnected() || isContractsLoaded)) {
     return <Navigate to={"/"} replace />;
   }
 
-  // TODO
-  return contracts.isContractsLoaded && <Outlet />;
+  return isContractsLoaded ? <Outlet /> : <div>Loading</div>;
 };

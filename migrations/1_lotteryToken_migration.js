@@ -8,5 +8,11 @@ module.exports = async function (deployer) {
   await deployer.deploy(Lottery, LotteryToken.address);
 
   const lotteryToken = await LotteryToken.deployed();
+
+  // msg.sender is the owner account[0] so comes from balances of account[0]
   await lotteryToken.transfer(Lottery.address, _JACKPOT);
+
+  // Now we have
+  // lotteryToken.balanceOf(accounts[0])  => 1500000
+  // lotteryToken.balanceOf(lottery.address) => 1000000
 };
