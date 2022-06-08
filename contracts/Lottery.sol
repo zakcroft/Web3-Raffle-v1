@@ -16,7 +16,7 @@ contract Lottery is Ownable, Events {
     LOTTERY_STATE public lottery_state;
     uint256 private constant _PRIZE_FUND = 1000;
     address payable[] public players;
-    mapping(address => bool) playersMap;
+    mapping(address => uint256) playersEnteredBalance;
     address public lastWinner;
     address public saleTokens;
 
@@ -105,8 +105,14 @@ contract Lottery is Ownable, Events {
             lotteryTokensAmountToEnter
         );
         players.push(payable(msg.sender));
-
-        emit Log(msg.sender, lotteryTokensAmountToEnter, "Lottery Entered");
+        playersEnteredBalance[msg.sender] =
+            playersEnteredBalance[msg.sender] +
+            lotteryTokensAmountToEnter;
+        emit Log(
+            msg.sender,
+            playersEnteredBalance[msg.sender],
+            "Lottery Entered"
+        );
     }
 
     function getRandomNumber() public view returns (uint256) {
@@ -172,3 +178,5 @@ contract Lottery is Ownable, Events {
 
 // fromWei converts any wei value into a ether value.
 // const amountToBuy =  web3.utils.fromWei("100000000000000000")
+
+// LotteryToken.allowance(accounts[1], Lottery.address)

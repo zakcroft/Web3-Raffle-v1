@@ -1,3 +1,7 @@
 export function Landing() {
-  return <p>{`Connect your wallet to start playing the Lottery`}</p>;
+  return (
+    <p
+      className={"ml-20"}
+    >{`Connect your wallet to start playing the Lottery`}</p>
+  );
 }

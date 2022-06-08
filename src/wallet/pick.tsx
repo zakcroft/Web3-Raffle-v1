@@ -13,8 +13,8 @@ export function usePickWinner() {
   const pickWinner = useCallback(async () => {
     try {
       const tx = await Lottery.pickWinner({
-          from: account,
-          gasLimit: 85000
+        from: account,
+        gasLimit: 85000,
       });
       setTx(tx);
     } catch (ex: any) {

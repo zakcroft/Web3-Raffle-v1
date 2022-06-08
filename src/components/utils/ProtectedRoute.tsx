@@ -3,6 +3,7 @@ import { useConnectWallet } from "../../wallet/connect";
 import { useContracts } from "../../wallet/contracts";
 
 // @ts-ignore
+// TODO startTransition
 export const ProtectedRoutes = () => {
   const { isWalletConnected } = useConnectWallet();
   const { isContractsLoaded } = useContracts();

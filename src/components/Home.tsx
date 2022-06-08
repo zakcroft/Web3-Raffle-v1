@@ -14,7 +14,6 @@ export function Home() {
   const { account, library } = useWeb3React();
   const { Lottery, LotteryToken } = useContracts();
 
-  const [walletEthBalance, setWalletEthBalance] = useState();
   const [lotterySalesBalance, setLotterySalesBalance] = useState();
   const [accountTokenBalance, setAccountTokenBalance] = useState();
   const [successBuyingEvent, setSuccessBuyingEvent] = useState(false);
@@ -24,7 +23,7 @@ export function Home() {
     amount?: number;
   }>({});
 
-  //console.log(LotteryToken);
+  //console.log("account", account);
   useEffect(() => {
     (async () => {
       if (LotteryToken) {
@@ -49,16 +48,12 @@ export function Home() {
     })();
   }, [Lottery]);
 
-  //console.log("RENDER", tx);
+  //console.log("RENDER");
 
   useEffect(() => {
     (async () => {
+      //console.log("RENDER 2");
       if (LotteryToken) {
-        // wallet calls
-        // get account address eth balance
-        const walletBalance = await library.eth.getBalance(account);
-        setWalletEthBalance(library?.utils.fromWei(walletBalance, "ether"));
-
         //ERC20 calls
         // get token balance for Lottery from ERC20 LotteryToken
         setLotterySalesBalance(
@@ -76,60 +71,77 @@ export function Home() {
         );
       }
     })();
-  }, [LotteryToken, library, account, buyTokensTx, enterLotteryTx, approveTx, pickWinnerTx]);
+  }, [
+    LotteryToken,
+    library,
+    account,
+    buyTokensTx,
+    enterLotteryTx,
+    approveTx,
+    pickWinnerTx,
+  ]);
 
   return (
     <>
-      <div className={"text-white-200 mb-8"}>
-        ETH wallet address: {account}
-        <div>Balance: {walletEthBalance}</div>
-      </div>
-      <div className={"text-white-200 mb-8"}>
-        Lottery balance for sale: {lotterySalesBalance}
-      </div>
-
-      <div className={"text-white-200 mb-8"}>Lottery</div>
-      <div className={"text-white-200 mb-8"}>
-        Your Lottery Token Balance: <span>{accountTokenBalance}</span>
+      <div className="h-24 border-2 rounded-md mx-auto mt-4">
+        <div
+          className="flex bg-grey-200 text-white-600 items-center h-full justify-center text-3xl"
+          title={account!}
+        >
+          Lottery balance for sale:{" "}
+          <div className="text-red-600 pl-2">{lotterySalesBalance} </div>
+        </div>
       </div>
 
-      <button
-        className="block bg-indigo-500 p-2 text-white font-semibold rounded hover:bg-indigo-700"
-        onClick={() => {
-          setSuccessBuyingEvent(false);
-          buyTokens();
-        }}
-      >
-        Buy 100 Lottery Tokens
-      </button>
-      <div className={"text-white-200 mb-8"}>
-        {successBuyingEvent ? "Token Bought OK." : " "}
+      <div className="flex flex-col h-26 border-2 rounded-md mx-auto mt-4 justify-start justify-self-center pt-2">
+        <button
+          className="block bg-indigo-500 p-2 text-white font-semibold rounded hover:bg-indigo-700 self-center"
+          onClick={() => {
+            setSuccessBuyingEvent(false);
+            buyTokens();
+          }}
+        >
+          Buy 100 Lottery Tokens
+        </button>
+        <div
+          className="bg-grey-200 text-white-600 items-center h-full text-3xl self-center mt-2 "
+          title={account!}
+        >
+          Your Lottery Token Balance:{" "}
+          <span className="text-green-600 pl-2">{accountTokenBalance}</span>
+        </div>
+        <div className={"text-white-200 my-2 self-center"}>
+          {successBuyingEvent ? "Token Bought OK." : " "}
+        </div>
+      </div>
+      <div className="flex flex-col h-26 border-2 rounded-md mx-auto mt-4 justify-start justify-self-center pt-2">
+        <button
+          className="block bg-indigo-500 p-2 text-white font-semibold rounded hover:bg-indigo-700 self-center"
+          onClick={approveTokens}
+        >
+          Approve Lottery Tokens
+        </button>
+        <div className={"text-white-200 my-2 self-center "}>
+          You have approved:
+          <span className="text-green-600 pl-2">{lotteryAllowance}</span> tokens
+          for the lottery contract to spend.
+        </div>
       </div>
 
-      <button
-        className="block bg-indigo-500 mt-10 p-2 text-white font-semibold rounded hover:bg-indigo-700"
-        onClick={approveTokens}
-      >
-        Approve Lottery Tokens
-      </button>
-      <div className={"text-white-200 mb-8"}>
-        You have approved: <span>{lotteryAllowance}</span> tokens for the
-        lottery contract to spend.
-      </div>
-
-      <button
-        className="block bg-indigo-500 mt-10 p-2 text-white font-semibold rounded hover:bg-indigo-700"
-        onClick={enterLottery}
-      >
-        Enter 100 Lottery tokens
-      </button>
-      <div className={"text-white-200 mb-8"}>
-        {lotteryEntered.addr && (
+      <div className="flex flex-col h-26 border-2 rounded-md mx-auto mt-4 justify-start justify-self-center pt-2">
+        <button
+          className="block bg-indigo-500 p-2 text-white font-semibold rounded hover:bg-indigo-700 self-center "
+          onClick={enterLottery}
+        >
+          Enter 100 Lottery tokens
+        </button>
+        <div className={"text-white-200 my-2 self-center "}>
           <p>
-            Your address: {lotteryEntered.addr} has entered the lottery with{" "}
-            {lotteryEntered.amount} tokens
+            {lotteryEntered.addr
+              ? `You entered the lottery with ${lotteryEntered.amount} tokens`
+              : `You have not entered the lottery yet`}
           </p>
-        )}
+        </div>
       </div>
 
       <button
