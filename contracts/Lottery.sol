@@ -15,12 +15,19 @@ contract Lottery is Ownable, Events {
     }
     LOTTERY_STATE public lottery_state;
     uint256 private constant _PRIZE_FUND = 1000;
-    address payable[] public players;
-    mapping(address => uint256) playersEnteredBalance;
+    address payable[] public playersAddresses;
     address public lastWinner;
     address public saleTokens;
 
     LotteryToken public token;
+
+    struct Player {
+        address addr;
+        uint256 totalEntered;
+    }
+
+    Player public player;
+    mapping(address => Player) public players;
 
     constructor(address tokenAddress) {
         token = LotteryToken(tokenAddress);
@@ -28,8 +35,20 @@ contract Lottery is Ownable, Events {
     }
 
     modifier lotteryIsOpen() {
-        assert(lottery_state == LOTTERY_STATE.OPEN);
+        require(lottery_state == LOTTERY_STATE.OPEN, "Lottery IS not open");
         _;
+    }
+
+    function setPLayer(address addr, uint256 amount) private {
+        playersAddresses.push(payable(addr));
+        player = Player(addr, amount);
+        players[addr] = player;
+    }
+
+    function updatePLayer(address addr, uint256 amount) private {
+        player = players[addr];
+        player.totalEntered = player.totalEntered + amount;
+        players[addr] = player;
     }
 
     function closeLottery() public onlyOwner {
@@ -38,7 +57,7 @@ contract Lottery is Ownable, Events {
             "Lottery already closed"
         );
         // reset dynamic memory array
-        players = new address payable[](0);
+        playersAddresses = new address payable[](0);
         lottery_state = LOTTERY_STATE.CLOSED;
     }
 
@@ -104,13 +123,17 @@ contract Lottery is Ownable, Events {
             address(this),
             lotteryTokensAmountToEnter
         );
-        players.push(payable(msg.sender));
-        playersEnteredBalance[msg.sender] =
-            playersEnteredBalance[msg.sender] +
-            lotteryTokensAmountToEnter;
+
+        if (players[msg.sender].totalEntered > 0) {
+            updatePLayer(msg.sender, lotteryTokensAmountToEnter);
+        } else {
+            // new player
+            setPLayer(msg.sender, lotteryTokensAmountToEnter);
+        }
+
         emit Log(
             msg.sender,
-            playersEnteredBalance[msg.sender],
+            players[msg.sender].totalEntered,
             "Lottery Entered"
         );
     }
@@ -118,7 +141,11 @@ contract Lottery is Ownable, Events {
     function getRandomNumber() public view returns (uint256) {
         uint256 rnd = uint256(
             keccak256(
-                abi.encodePacked(block.difficulty, block.timestamp, players)
+                abi.encodePacked(
+                    block.difficulty,
+                    block.timestamp,
+                    playersAddresses
+                )
             )
         );
 
@@ -126,13 +153,13 @@ contract Lottery is Ownable, Events {
     }
 
     function pickWinner() public lotteryIsOpen onlyOwner {
-        lottery_state = LOTTERY_STATE.CALCULATING_WINNER;
+        //lottery_state = LOTTERY_STATE.CALCULATING_WINNER;
 
         // TODO with getRandomNumber()
-        lastWinner = players[players.length - 1];
+        lastWinner = playersAddresses[playersAddresses.length - 1];
         uint256 winnings = address(this).balance;
 
-        closeLottery();
+        //closeLottery();
 
         payable(lastWinner).transfer(address(this).balance);
 
@@ -170,6 +197,8 @@ contract Lottery is Ownable, Events {
 
 // Now enter and use the transferFrom
 // const res = await lottery.enterLottery("100", { from:accounts[1] })
+
+// lottery.playersEnteredBalance[accounts[1]]
 
 // lottery.pickWinner()
 

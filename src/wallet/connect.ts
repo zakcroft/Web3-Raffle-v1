@@ -17,7 +17,7 @@ export const injected = new InjectedConnector({
 
 export function useConnectWallet() {
   const navigate = useNavigate();
-  const { activate, deactivate, library, account } = useWeb3React();
+  const { activate, deactivate, library } = useWeb3React();
 
   async function connect() {
     try {
@@ -48,7 +48,9 @@ export function useConnectWallet() {
       const { currentProvider } = library;
 
       const handleAccountsChanged = (accounts: string[]) => {
+        console.log("accountsChanged");
         if (accounts.length > 0) {
+          console.log("reactivate");
           activate(injected, undefined, true).catch((error) => {
             // eat errors
             console.error("Failed to activate after accounts changed", error);

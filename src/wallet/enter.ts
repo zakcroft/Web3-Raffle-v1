@@ -16,13 +16,13 @@ export function useEnterLottery(
     try {
       const tx = await Lottery.enterLottery(quantity, {
         from: account,
+        gasLimit: 850000,
       });
       setTx(tx);
     } catch (ex: any) {
       setErr(ex.message);
-      //debugger
     }
-  }, [Lottery]);
+  }, [Lottery, account, quantity]);
 
   return { enterLottery, enterLotteryTx, err };
 }

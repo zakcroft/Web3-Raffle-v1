@@ -8,13 +8,16 @@ export function useBuyTokens(ethValue: string = "0.1", quantity: number = 100) {
   const { Lottery } = useContracts();
 
   const buyTokens = useCallback(async () => {
-    const tx = await Lottery.buyLotteryTokens({
-      from: account,
-      value: library?.utils.toWei(ethValue, "ether"),
-      gasLimit: 85000,
-    });
-    setTx(tx);
-  }, [Lottery]);
+    try {
+      const tx = await Lottery.buyLotteryTokens({
+        from: account,
+        value: library?.utils.toWei(ethValue, "ether"),
+      });
+      setTx(tx);
+    } catch (e: any) {
+      console.log(e.message);
+    }
+  }, [library, account, Lottery, ethValue]);
 
   return { buyTokens, buyTokensTx };
 }

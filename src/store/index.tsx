@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 
 import counter from "./counterSlice";
+import balance from "./ethBalance";
 
 export const store = configureStore({
   reducer: {
     // Add the generated reducer as a specific top-level slice
     //[invoicesApi.reducerPath]: invoicesApi.reducer,
     counter,
+    balance,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.

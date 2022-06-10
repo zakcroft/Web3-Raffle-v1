@@ -1,21 +1,16 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useWeb3React } from "@web3-react/core";
+import { useSelector } from "react-redux";
+
 import { useConnectWallet } from "../../wallet/connect";
+import { RootState } from "../../store";
 
 export function SideNav() {
-  const { account, library } = useWeb3React();
+  const { account } = useWeb3React();
   const { connect, isWalletConnected } = useConnectWallet();
-  const [walletEthBalance, setWalletEthBalance] = useState("");
-
-  useEffect(() => {
-    (async () => {
-      const walletBalance = await library?.eth.getBalance(account);
-      const eth = library?.utils.fromWei(walletBalance, "ether");
-      setWalletEthBalance(Number(eth).toPrecision(4));
-    })();
-  }, [library, account]);
-
+  const balance = useSelector((state: RootState) => state.balance.value);
+  console.log(balance);
   return (
     <>
       <nav className={"p-4 border-solid border-r-2 basis-1/6 self-start"}>
@@ -44,7 +39,7 @@ export function SideNav() {
                 className="flex bg-grey-200 text-white-600 items-center h-full justify-center text-3xl"
                 title={account!}
               >
-                {walletEthBalance} ETH
+                {balance} ETH
               </div>
             </div>
           </>

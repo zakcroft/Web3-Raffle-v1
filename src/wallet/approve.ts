@@ -14,10 +14,10 @@ export function useApproveTokens(
   const approveTokens = useCallback(async () => {
     const tx = await LotteryToken.increaseAllowance(Lottery.address, quantity, {
       from: account,
-      gasLimit: 85000,
     });
+
     setTx(tx);
-  }, [Lottery, LotteryToken]);
+  }, [Lottery, LotteryToken, account, quantity]);
 
   return { approveTokens, approveTx };
 }
