@@ -113,7 +113,7 @@ export function Home() {
     pickWinnerTx,
     openLotteryTx,
   ]);
-
+  console.log("log", lotteryEntered);
   return (
     <>
       <div className="w-100 font-bold rounded-md bg-gradient-to-tr-200 border-green-600 text-red-600 ml-3">
@@ -172,7 +172,7 @@ export function Home() {
         <div className={"text-white-200 my-2 self-center"}>
           <p>
             {lotteryEntered.addr
-              ? `You entered the lottery with ${lotteryEntered.amount} tokens`
+                ? <span>You entered the lottery with <span className="text-green-600">{lotteryEntered.amount}</span> tokens</span>
               : `You have not entered the lottery yet`}
           </p>
         </div>
