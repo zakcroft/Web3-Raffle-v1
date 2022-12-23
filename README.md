@@ -1,5 +1,7 @@
 # Installation.
 
+This is version one using web3 and truffle. Version 2 is in development. 
+
 ## Install node and pnpm
 
 #### `install node >= 18.9.0`
