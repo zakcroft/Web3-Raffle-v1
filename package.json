@@ -7,6 +7,8 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^14.2.0",
+    "@types/jest": "^29.2.4",
+    "@types/mocha": "^10.0.1",
     "msw": "^0.36.4",
     "ttab": "^0.7.2"
   },
@@ -14,7 +16,6 @@
     "@metamask/detect-provider": "^1.2.0",
     "@openzeppelin/contracts": "^4.6.0",
     "@truffle/contract": "^4.5.12",
-    "@types/jest": "^27.5.1",
     "@types/node": "^17.0.33",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.4",
@@ -58,7 +59,6 @@
     "test": "react-app-rewired test",
     "testContracts": "mocha -w ./test",
     "eject": "react-app-rewired eject",
-    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('You must use Yarn to install, not NPM')\"",
     "prettier": "prettier --write '{contracts/**/*.sol,src/**/*.{js,ts,css,html,tsx},test/*.js,.json}'"
   },
   "eslintConfig": {

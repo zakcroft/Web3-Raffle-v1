@@ -110,15 +110,15 @@
     "absolutePath": "project:/contracts/Events.sol",
     "exportedSymbols": {
       "Events": [
-        957
+        966
       ]
     },
-    "id": 958,
+    "id": 967,
     "license": "GPL-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 926,
+        "id": 935,
         "literals": [
           "solidity",
           ">=",
@@ -138,9 +138,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 957,
+        "id": 966,
         "linearizedBaseContracts": [
-          957
+          966
         ],
         "name": "Events",
         "nameLocation": "80:6:7",
@@ -149,23 +149,23 @@
           {
             "anonymous": false,
             "eventSelector": "0a37b72bb67eee30e09084cf386f8a17817c57f620c3ab95fb25d6a20356ec77",
-            "id": 934,
+            "id": 943,
             "name": "BuyTokens",
             "nameLocation": "99:9:7",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 933,
+              "id": 942,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 928,
+                  "id": 937,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "buyer",
                   "nameLocation": "117:5:7",
                   "nodeType": "VariableDeclaration",
-                  "scope": 934,
+                  "scope": 943,
                   "src": "109:13:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -174,7 +174,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 927,
+                    "id": 936,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "109:7:7",
@@ -188,13 +188,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 930,
+                  "id": 939,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "amountOfETH",
                   "nameLocation": "132:11:7",
                   "nodeType": "VariableDeclaration",
-                  "scope": 934,
+                  "scope": 943,
                   "src": "124:19:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -203,7 +203,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 929,
+                    "id": 938,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "124:7:7",
@@ -216,13 +216,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 932,
+                  "id": 941,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "amountOfTokens",
                   "nameLocation": "153:14:7",
                   "nodeType": "VariableDeclaration",
-                  "scope": 934,
+                  "scope": 943,
                   "src": "145:22:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -231,7 +231,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 931,
+                    "id": 940,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "145:7:7",
@@ -250,23 +250,23 @@
           {
             "anonymous": false,
             "eventSelector": "1f8ded4e092e81999af43c30c657003d355c308251c9799b01895eefde833090",
-            "id": 942,
+            "id": 951,
             "name": "SoldTokens",
             "nameLocation": "180:10:7",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 941,
+              "id": 950,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 936,
+                  "id": 945,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "buyer",
                   "nameLocation": "208:5:7",
                   "nodeType": "VariableDeclaration",
-                  "scope": 942,
+                  "scope": 951,
                   "src": "200:13:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -275,7 +275,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 935,
+                    "id": 944,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "200:7:7",
@@ -289,13 +289,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 938,
+                  "id": 947,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "amountOfETH",
                   "nameLocation": "231:11:7",
                   "nodeType": "VariableDeclaration",
-                  "scope": 942,
+                  "scope": 951,
                   "src": "223:19:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -304,7 +304,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 937,
+                    "id": 946,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "223:7:7",
@@ -317,13 +317,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 940,
+                  "id": 949,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "amountOfTokens",
                   "nameLocation": "260:14:7",
                   "nodeType": "VariableDeclaration",
-                  "scope": 942,
+                  "scope": 951,
                   "src": "252:22:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -332,7 +332,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 939,
+                    "id": 948,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "252:7:7",
@@ -351,23 +351,23 @@
           {
             "anonymous": false,
             "eventSelector": "3cf1af53e79884a92609ce59db1ec9f584d88e2d14c8eaba43a21db81318301e",
-            "id": 948,
+            "id": 957,
             "name": "WinnerDeclared",
             "nameLocation": "292:14:7",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 947,
+              "id": 956,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 944,
+                  "id": 953,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "winner",
                   "nameLocation": "315:6:7",
                   "nodeType": "VariableDeclaration",
-                  "scope": 948,
+                  "scope": 957,
                   "src": "307:14:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -376,7 +376,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 943,
+                    "id": 952,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "307:7:7",
@@ -390,13 +390,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 946,
+                  "id": 955,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "winnings",
                   "nameLocation": "331:8:7",
                   "nodeType": "VariableDeclaration",
-                  "scope": 948,
+                  "scope": 957,
                   "src": "323:16:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -405,7 +405,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 945,
+                    "id": 954,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "323:7:7",
@@ -424,23 +424,23 @@
           {
             "anonymous": false,
             "eventSelector": "4e3358e5bdb38f499a83fbcd33d16343569f3b6fe53021022dede6364017b4a8",
-            "id": 956,
+            "id": 965,
             "name": "Log",
             "nameLocation": "353:3:7",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 955,
+              "id": 964,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 950,
+                  "id": 959,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "addr",
                   "nameLocation": "365:4:7",
                   "nodeType": "VariableDeclaration",
-                  "scope": 956,
+                  "scope": 965,
                   "src": "357:12:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -449,7 +449,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 949,
+                    "id": 958,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "357:7:7",
@@ -463,13 +463,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 952,
+                  "id": 961,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "amount",
                   "nameLocation": "379:6:7",
                   "nodeType": "VariableDeclaration",
-                  "scope": 956,
+                  "scope": 965,
                   "src": "371:14:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -478,7 +478,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 951,
+                    "id": 960,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "371:7:7",
@@ -491,13 +491,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 954,
+                  "id": 963,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "msg",
                   "nameLocation": "394:3:7",
                   "nodeType": "VariableDeclaration",
-                  "scope": 956,
+                  "scope": 965,
                   "src": "387:10:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -506,7 +506,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 953,
+                    "id": 962,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "387:6:7",
@@ -523,7 +523,7 @@
             "src": "347:52:7"
           }
         ],
-        "scope": 958,
+        "scope": 967,
         "src": "71:330:7",
         "usedErrors": []
       }
@@ -535,8 +535,8 @@
     "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-07T08:54:12.992Z",
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2022-12-23T11:55:50.445Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
