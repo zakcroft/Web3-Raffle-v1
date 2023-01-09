@@ -7,6 +7,8 @@ import { useContracts } from "../../wallet/contracts";
 export const ProtectedRoutes = () => {
   const { isWalletConnected } = useConnectWallet();
   const { isContractsLoaded } = useContracts();
+
+  console.log("isContractsLoaded", isContractsLoaded);
   console.log(!(isWalletConnected() || isContractsLoaded));
   if (!(isWalletConnected() || isContractsLoaded)) {
     return <Navigate to={"/"} replace />;

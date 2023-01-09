@@ -17,7 +17,6 @@ contract Lottery is Ownable, Events {
     uint256 private constant _PRIZE_FUND = 1000;
     address payable[] public playersAddresses;
     address public lastWinner;
-    address public saleTokens;
 
     LotteryToken public token;
 
@@ -161,19 +160,13 @@ contract Lottery is Ownable, Events {
 
         //closeLottery();
 
-        payable(lastWinner).transfer(address(this).balance);
+        payable(lastWinner).transfer(address(this).balance * 1);
+
+        // 10% cut for the owner
+        //payable(owner).transfer(address(this).balance * 0.1);
 
         emit WinnerDeclared(lastWinner, winnings);
     }
-
-    //    function isParticipate(address _participant) private view returns (bool) {
-    //        for (uint256 i = 0; i < players.length; i++) {
-    //            if (players[i] == _participant) {
-    //                return true;
-    //            }
-    //        }
-    //        return false;
-    //    }
 }
 
 // cmds

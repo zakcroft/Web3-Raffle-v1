@@ -11,6 +11,7 @@ export function usePickWinner() {
 
   //lottery.enterLottery("100", { from:accounts[1] })
   const pickWinner = useCallback(async () => {
+    console.log(await Lottery.owner());
     try {
       const tx = await Lottery.pickWinner({
         from: account,

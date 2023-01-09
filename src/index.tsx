@@ -7,7 +7,6 @@ import Root from "./App";
 
 const container = document.getElementById("root") as HTMLDivElement;
 const root = ReactDOM.createRoot(container);
-
 root.render(
   <React.StrictMode>
     <Web3ReactProvider getLibrary={(provider) => new Web3(provider)}>

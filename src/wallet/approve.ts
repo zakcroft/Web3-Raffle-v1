@@ -2,10 +2,7 @@ import { useState, useCallback } from "react";
 import { useWeb3React } from "@web3-react/core";
 import { useContracts } from "./contracts";
 
-export function useApproveTokens(
-  ethValue: string = "0.1",
-  quantity: number = 100
-) {
+export function useApproveTokens(quantity: number = 100) {
   const { account } = useWeb3React();
   const [approveTx, setTx] = useState<object>({});
   const { Lottery, LotteryToken } = useContracts();
