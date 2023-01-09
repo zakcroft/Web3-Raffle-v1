@@ -23,6 +23,8 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
+const HDWalletProvider = require("@truffle/hdwallet-provider");
+require('dotenv').config({path: './.env.local'});
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -54,6 +56,16 @@ module.exports = {
       port: 7545, // Standard Ethereum port (default: none)
       network_id: "*", // Any network (default: none)
     },
+
+    sepolia: {
+      provider: () =>
+        new HDWalletProvider(
+          process.env.MNEMONIC,
+            process.env.SEPOLIA_API_KEY
+        ),
+      network_id: 11155111,
+    },
+
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port

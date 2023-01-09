@@ -7,8 +7,10 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^14.2.0",
+    "@truffle/hdwallet-provider": "^2.1.4",
     "@types/jest": "^29.2.4",
     "@types/mocha": "^10.0.1",
+    "dotenv": "^16.0.3",
     "msw": "^0.36.4",
     "ttab": "^0.7.2"
   },
