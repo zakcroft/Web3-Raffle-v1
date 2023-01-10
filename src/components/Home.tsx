@@ -88,7 +88,7 @@ export function Home() {
       //console.log("RENDER 2");
       if (LotteryToken) {
         const lotteryEth = await library.eth.getBalance(Lottery.address);
-        console.log("str===", library.utils.toBN(lotteryEth).dividedBy(2));
+        //console.log("str===", library.utils.toBN(lotteryEth).dividedBy(2));
 
         setJackpot(library.utils.fromWei(lotteryEth, "ether"));
         //ERC20 calls
