@@ -18,8 +18,8 @@ export function Landing() {
 
       <h1 className={"ml-20 my-10"}>
         {" "}
-        Get some test ETH - Some faucets to use some work sometime snad some not
-        other times. -{" "}
+        Get some test ETH - Some faucets to use some work sometime and some not
+        other times.
       </h1>
       <div className={"flex flex-col space-y-5"}>
         <a
