@@ -9,7 +9,7 @@ export const ProtectedRoutes = () => {
   const { isContractsLoaded } = useContracts();
 
   console.log("isContractsLoaded", isContractsLoaded);
-  console.log(!(isWalletConnected() || isContractsLoaded));
+  //console.log(!(isWalletConnected() || isContractsLoaded));
   if (!(isWalletConnected() || isContractsLoaded)) {
     return <Navigate to={"/"} replace />;
   }

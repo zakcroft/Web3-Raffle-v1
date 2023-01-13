@@ -119,7 +119,7 @@ export function Home() {
     openLotteryTx,
     allocateTokensTx,
   ]);
-  console.log("log", lotteryEntered);
+  //console.log("log", lotteryEntered);
   return (
     <>
       <div className="w-100 font-bold rounded-md bg-gradient-to-tr-200 border-green-600 text-red-600 ml-3">

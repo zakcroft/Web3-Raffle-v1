@@ -96,10 +96,9 @@ contract Lottery is Ownable, Events {
         return amountToBuy;
     }
 
-    function enterLottery(uint256 lotteryTokensAmountToEnter)
-        external
-        lotteryIsOpen
-    {
+    function enterLottery(
+        uint256 lotteryTokensAmountToEnter
+    ) external lotteryIsOpen {
         uint256 playerBalance = token.balanceOf(msg.sender);
         require(
             playerBalance >= 0,

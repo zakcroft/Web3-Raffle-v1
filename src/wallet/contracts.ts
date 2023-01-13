@@ -16,7 +16,7 @@ export function useContracts() {
 
   useEffect(() => {
     (async () => {
-      //console.log("library===", library);
+      console.log("library===", library);
       if (library) {
         //console.log("RUN===");
         const provider = library.currentProvider;
@@ -24,14 +24,17 @@ export function useContracts() {
         Lottery.setProvider(provider);
         LotteryToken.setProvider(provider);
 
-        Lottery = await Lottery.deployed();
-        LotteryToken = await LotteryToken.deployed();
-
-        setContracts({
-          Lottery,
-          LotteryToken,
-        });
-        setIsContractsLoaded(true);
+        try {
+          Lottery = await Lottery.deployed();
+          LotteryToken = await LotteryToken.deployed();
+          setContracts({
+            Lottery,
+            LotteryToken,
+          });
+          setIsContractsLoaded(true);
+        } catch (e) {
+          console.log("You are connected to the wrong network");
+        }
       }
     })();
 
